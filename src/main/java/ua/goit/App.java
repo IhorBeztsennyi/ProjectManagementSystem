@@ -3,7 +3,7 @@ package ua.goit;
 import ua.goit.configuration.DataBaseManager;
 import ua.goit.configuration.PostgreSqlHikari;
 import ua.goit.configuration.PropertiesUtil;
-import ua.goit.gueries.Queries;
+import ua.goit.queries.Queries;
 import ua.goit.model.Customers;
 import ua.goit.model.Developers;
 import ua.goit.model.Projects;
@@ -19,15 +19,14 @@ public class App {
         View view = new Console();
 
         PropertiesUtil util = new PropertiesUtil();
-        System.out.println(util.getHostname() + " " + util.getPort() + " " + util.getSchema() + " " + util.getUser() + " " + util.getPassword());
         DataBaseManager managerDB = new PostgreSqlHikari(util.getHostname(), util.getPort(), util.getSchema(), util.getUser(), util.getPassword());
-
         Queries queries = new Queries(managerDB);
 
         view.write("Sum of the project: " + queries.getSumByProjectId(1));
         view.write("List of developers: " + queries.getDevelopersByProjectId(1));
-
-
+        view.write("List of Java developers: " + queries.getJavaDevelopers());
+        view.write("List of Middle developers: " + queries.getMiddleDevelopers());
+        view.write("List of projects (begin data, name and a count of developers): " + queries.getCountOfDevelopers());
 
         ProjectsRepository projectsRepository = new ProjectsRepository(managerDB);
         DevelopersRepository developersRepository = new DevelopersRepository(managerDB);
@@ -40,8 +39,5 @@ public class App {
 //        projectsRepository.save(newProject);
 //        developersRepository.save(newDeveloper);
 //        customersRepository.save(newCustomer);
-
-
-
     }
 }

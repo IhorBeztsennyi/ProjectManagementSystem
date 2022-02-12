@@ -1,13 +1,12 @@
 package ua.goit.configuration;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertiesUtil {
-    private Properties properties = null;
+    private Properties properties;
 
     public PropertiesUtil() {
         this.properties = new Properties();

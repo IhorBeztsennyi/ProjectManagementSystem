@@ -6,7 +6,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class PostgreSqlHikari implements DataBaseManager{
+public class PostgreSqlHikari implements DataBaseManager {
 
     private final HikariDataSource dataSource;
 
