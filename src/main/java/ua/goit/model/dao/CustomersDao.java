@@ -1,6 +1,6 @@
-package ua.goit.model;
+package ua.goit.model.dao;
 
-public class Customers {
+public class CustomersDao {
 
     private Integer customer_id;
     private String first_name;
@@ -10,10 +10,10 @@ public class Customers {
     private String email;
     private String phone;
 
-    public Customers(){
+    public CustomersDao(){
     }
 
-    public Customers(String first_name, String last_name, Integer age, String gender, String email, String phone) {
+    public CustomersDao(String first_name, String last_name, Integer age, String gender, String email, String phone) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.age = age;

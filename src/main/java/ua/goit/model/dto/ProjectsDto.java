@@ -1,6 +1,6 @@
-package ua.goit.model;
+package ua.goit.model.dto;
 
-public class Projects {
+public class ProjectsDto {
 
     private Integer project_id;
     private String name;
@@ -8,14 +8,15 @@ public class Projects {
     private Integer company_id;
     private Integer begin_data;
 
-    public Projects() {
-    }
-
-    public Projects(String name, Integer customer_id, Integer company_id, Integer begin_data) {
+    public ProjectsDto(Integer project_id, String name, Integer customer_id, Integer company_id, Integer begin_data) {
+        this.project_id = project_id;
         this.name = name;
         this.customer_id = customer_id;
         this.company_id = company_id;
         this.begin_data = begin_data;
+    }
+
+    public ProjectsDto() {
     }
 
     public Integer getProject_id() {

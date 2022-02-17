@@ -1,7 +1,7 @@
 package ua.goit.queries;
 
 import ua.goit.configuration.DataBaseManager;
-import ua.goit.model.Developers;
+import ua.goit.model.dao.DevelopersDao;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class Queries {
         return null;
     }
 
-    public ArrayList<Developers> getMiddleDevelopers() {
+    public ArrayList<DevelopersDao> getMiddleDevelopers() {
         try (Connection connection = managerDB.getConnection();
              Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(MIDDLE_DEVELOPERS);
@@ -72,7 +72,7 @@ public class Queries {
         return null;
     }
 
-    public ArrayList<Developers> getJavaDevelopers() {
+    public ArrayList<DevelopersDao> getJavaDevelopers() {
         try (Connection connection = managerDB.getConnection();
              Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(JAVA_DEVELOPERS);
@@ -83,7 +83,7 @@ public class Queries {
         return null;
     }
 
-    public ArrayList<Developers> getDevelopersByProjectId(Integer project_id) {
+    public ArrayList<DevelopersDao> getDevelopersByProjectId(Integer project_id) {
         try (Connection connection = managerDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DEVELOPERS_BY_PROJECT)) {
             preparedStatement.setInt(1, project_id);
@@ -111,11 +111,11 @@ public class Queries {
         return null;
     }
 
-    private ArrayList<Developers> getListOfDevelopers(ResultSet resultSet) throws SQLException {
-        ArrayList<Developers> result = new ArrayList<>();
-        Developers developer = null;
+    private ArrayList<DevelopersDao> getListOfDevelopers(ResultSet resultSet) throws SQLException {
+        ArrayList<DevelopersDao> result = new ArrayList<>();
+        DevelopersDao developer = null;
         while (resultSet.next()) {
-            developer = new Developers();
+            developer = new DevelopersDao();
             developer.setNameId(resultSet.getInt("name_id"));
             developer.setFirstName(resultSet.getString("first_name"));
             developer.setLastName(resultSet.getString("last_name"));

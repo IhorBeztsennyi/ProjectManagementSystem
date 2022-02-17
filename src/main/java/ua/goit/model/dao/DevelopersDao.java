@@ -1,6 +1,6 @@
-package ua.goit.model;
+package ua.goit.model.dao;
 
-public class Developers {
+public class DevelopersDao {
     private Integer nameId;
     private String firstName;
     private String lastName;
@@ -10,10 +10,10 @@ public class Developers {
     private String phone;
     private Double salary;
 
-    public Developers() {
+    public DevelopersDao() {
     }
 
-    public Developers(String firstName, String lastName, Integer age, String gender, String email, String phone, Double salary) {
+    public DevelopersDao(String firstName, String lastName, Integer age, String gender, String email, String phone, Double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;

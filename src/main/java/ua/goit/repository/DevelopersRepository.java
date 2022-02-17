@@ -1,14 +1,14 @@
 package ua.goit.repository;
 
 import ua.goit.configuration.DataBaseManager;
-import ua.goit.model.Developers;
+import ua.goit.model.dao.DevelopersDao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
-public class DevelopersRepository implements Repository<Developers> {
+public class DevelopersRepository implements Repository<DevelopersDao> {
 
     private DataBaseManager managerDB;
     private static final String SAVE_NEW_DEVELOPER = "INSERT INTO developers (first_name, last_name, age, gender, email, phone, salary) VALUES (?, ?, ?, ?, ?, ?, ?);";
@@ -18,7 +18,7 @@ public class DevelopersRepository implements Repository<Developers> {
     }
 
     @Override
-    public void save(Developers dev) {
+    public void save(DevelopersDao dev) {
         try (Connection connection = managerDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE_NEW_DEVELOPER)) {
             preparedStatement.setString(1, dev.getFirstName());

@@ -4,9 +4,9 @@ import ua.goit.configuration.DataBaseManager;
 import ua.goit.configuration.PostgreSqlHikari;
 import ua.goit.configuration.PropertiesUtil;
 import ua.goit.queries.Queries;
-import ua.goit.model.Customers;
-import ua.goit.model.Developers;
-import ua.goit.model.Projects;
+import ua.goit.model.dao.CustomersDao;
+import ua.goit.model.dao.DevelopersDao;
+import ua.goit.model.dao.ProjectsDao;
 import ua.goit.repository.CustomersRepository;
 import ua.goit.repository.DevelopersRepository;
 import ua.goit.repository.ProjectsRepository;
@@ -32,9 +32,9 @@ public class App {
         DevelopersRepository developersRepository = new DevelopersRepository(managerDB);
         CustomersRepository customersRepository = new CustomersRepository(managerDB);
 
-        Projects newProject = new Projects("Application for sport", 2, 1, 1220327200);
-        Developers newDeveloper = new Developers("Petro", "Podolsky", 39, "male", "podolsky_mail@gmail.com", "077 123 88 66", 2351.25);
-        Customers newCustomer = new Customers("Chack", "Freeman", 60, "male", "freeman_mail@ukr.net", "1 243 777 999");
+        ProjectsDao newProject = new ProjectsDao("Application for sport", 2, 1, 1220327200);
+        DevelopersDao newDeveloper = new DevelopersDao("Petro", "Podolsky", 39, "male", "podolsky_mail@gmail.com", "077 123 88 66", 2351.25);
+        CustomersDao newCustomer = new CustomersDao("Chack", "Freeman", 60, "male", "freeman_mail@ukr.net", "1 243 777 999");
 
 //        projectsRepository.save(newProject);
 //        developersRepository.save(newDeveloper);

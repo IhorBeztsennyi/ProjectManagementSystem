@@ -1,14 +1,14 @@
 package ua.goit.repository;
 
 import ua.goit.configuration.DataBaseManager;
-import ua.goit.model.Customers;
+import ua.goit.model.dao.CustomersDao;
 
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class CustomersRepository implements Repository<Customers> {
+public class CustomersRepository implements Repository<CustomersDao> {
 
     private DataBaseManager managerDB;
     private static final String SAVE_NEW_CUSTOMER = "INSERT INTO customers (first_name, last_name, age, gender, email, phone) VALUES (?, ?, ?, ?, ?, ?);";
@@ -18,7 +18,7 @@ public class CustomersRepository implements Repository<Customers> {
     }
 
     @Override
-    public void save(Customers customer) {
+    public void save(CustomersDao customer) {
         try (Connection connection = managerDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE_NEW_CUSTOMER)) {
             preparedStatement.setString(1, customer.getFirst_name());
