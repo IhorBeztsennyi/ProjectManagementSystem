@@ -11,7 +11,8 @@ public class ProjectsDao {
     public ProjectsDao() {
     }
 
-    public ProjectsDao(String name, Integer customer_id, Integer company_id, Integer begin_data) {
+    public ProjectsDao(Integer project_id, String name, Integer customer_id, Integer company_id, Integer begin_data) {
+        this.project_id = project_id;
         this.name = name;
         this.customer_id = customer_id;
         this.company_id = company_id;

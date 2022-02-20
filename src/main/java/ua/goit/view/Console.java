@@ -18,6 +18,5 @@ public class Console implements View {
     @Override
     public void write(String string) {
         System.out.println(string);
-
     }
 }

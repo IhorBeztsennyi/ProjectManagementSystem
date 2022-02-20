@@ -11,6 +11,16 @@ public class DevelopersDto {
     private String phone;
     private Double salary;
 
+    public DevelopersDto( String firstName, String lastName, Integer age, String gender, String email, String phone, Double salary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.salary = salary;
+    }
+
     public DevelopersDto(Integer nameId, String firstName, String lastName, Integer age, String gender, String email, String phone, Double salary) {
         this.nameId = nameId;
         this.firstName = firstName;

@@ -13,7 +13,8 @@ public class DevelopersDao {
     public DevelopersDao() {
     }
 
-    public DevelopersDao(String firstName, String lastName, Integer age, String gender, String email, String phone, Double salary) {
+    public DevelopersDao(Integer nameId, String firstName, String lastName, Integer age, String gender, String email, String phone, Double salary) {
+        this.nameId = nameId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
