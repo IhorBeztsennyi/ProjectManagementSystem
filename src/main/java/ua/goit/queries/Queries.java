@@ -37,6 +37,8 @@ public class Queries {
             "WHERE p.project_id = ptd.project_id\n" +
             "GROUP BY p.project_id;";
 
+    private static final String ALL_DEVELOPERS = "SELECT * FROM developers;";
+
     public Queries(DataBaseManager connection) {
         this.managerDB = connection;
     }
@@ -65,6 +67,17 @@ public class Queries {
         try (Connection connection = managerDB.getConnection();
              Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(MIDDLE_DEVELOPERS);
+            return getListOfDevelopers(resultSet);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<DevelopersDao> getAllDevelopers() {
+        try (Connection connection = managerDB.getConnection();
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(ALL_DEVELOPERS);
             return getListOfDevelopers(resultSet);
         } catch (SQLException e) {
             e.printStackTrace();

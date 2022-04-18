@@ -6,13 +6,7 @@ import ua.goit.configuration.PropertiesUtil;
 import ua.goit.model.converter.CustomersConverter;
 import ua.goit.model.converter.DevelopersConverter;
 import ua.goit.model.converter.ProjectsConverter;
-import ua.goit.model.dto.CustomersDto;
-import ua.goit.model.dto.DevelopersDto;
-import ua.goit.model.dto.ProjectsDto;
 import ua.goit.queries.Queries;
-import ua.goit.repository.CustomersRepository;
-import ua.goit.repository.DevelopersRepository;
-import ua.goit.repository.ProjectsRepository;
 import ua.goit.view.Console;
 import ua.goit.view.View;
 
@@ -26,7 +20,7 @@ public class App {
         ProjectsConverter projectsConverter = new ProjectsConverter();
 
         PropertiesUtil util = new PropertiesUtil();
-        DataBaseManager managerDB = new PostgreSqlHikari(util.getHostname(), util.getPort(), util.getSchema(), util.getUser(), util.getPassword());
+        DataBaseManager managerDB = new PostgreSqlHikari(util.getHostname(), util.getPort(), util.getSchema(), util.getUser(), util.getPassword(), util.getJdbcDriver());
         Queries queries = new Queries(managerDB);
 
         view.write("Sum of the project: " + queries.getSumByProjectId(1));
@@ -34,14 +28,15 @@ public class App {
         view.write("List of Java developers: " + queries.getJavaDevelopers());
         view.write("List of Middle developers: " + queries.getMiddleDevelopers());
         view.write("List of projects (begin data, name and a count of developers): " + queries.getCountOfDevelopers());
-
-        ProjectsRepository projectsRepository = new ProjectsRepository(managerDB);
-        DevelopersRepository developersRepository = new DevelopersRepository(managerDB);
-        CustomersRepository customersRepository = new CustomersRepository(managerDB);
-
-        DevelopersDto newDeveloper = new DevelopersDto("Petro", "Podolsky", 39, "male", "podolsky_mail@gmail.com", "077 123 88 66", 2351.25);
-        CustomersDto newCustomer = new CustomersDto("Chack", "Freeman", 60, "male", "freeman_mail@ukr.net", "1 243 777 999");
-        ProjectsDto newProject = new ProjectsDto("Application for sport", 2, 1, 1220327200);
+        view.write("List of All developers: " + queries.getAllDevelopers());
+//
+//        ProjectsRepository projectsRepository = new ProjectsRepository(managerDB);
+//        DevelopersRepository developersRepository = new DevelopersRepository(managerDB);
+//        CustomersRepository customersRepository = new CustomersRepository(managerDB);
+//
+//        DevelopersDto newDeveloper = new DevelopersDto("Petro", "Podolsky", 39, "male", "podolsky_mail@gmail.com", "077 123 88 66", 2351.25);
+//        CustomersDto newCustomer = new CustomersDto("Chack", "Freeman", 60, "male", "freeman_mail@ukr.net", "1 243 777 999");
+//        ProjectsDto newProject = new ProjectsDto("Application for sport", 2, 1, 1220327200);
 
 //        developersRepository.save(developersConverter.dtoToDao(newDeveloper));
 //        customersRepository.save(customersConverter.dtoToDao(newCustomer));
@@ -67,5 +62,8 @@ public class App {
 //
 //        view.write("Project remove");
 //        projectsRepository.remove(5);
+
+
+
     }
 }

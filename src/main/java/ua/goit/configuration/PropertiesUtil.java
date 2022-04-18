@@ -1,16 +1,26 @@
 package ua.goit.configuration;
 
+import javax.servlet.ServletContext;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 public class PropertiesUtil {
     private Properties properties;
 
+    public PropertiesUtil(ServletContext context) {
+        this.properties = new Properties();
+        try (InputStream inputStream = context.getResourceAsStream("/WEB-INF/resources/resources.properties")) {
+            properties.load(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public PropertiesUtil() {
         this.properties = new Properties();
-        try (InputStream inputStream = new FileInputStream("src/main/java/resources.properties")) {
+        try (InputStream inputStream = new  FileInputStream("src/main/webapp/WEB-INF/resources/resources.properties")) {
             properties.load(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,5 +45,9 @@ public class PropertiesUtil {
 
     public String getPassword() {
         return properties.getProperty("database.password");
+    }
+
+    public String getJdbcDriver() {
+        return properties.getProperty("jdbc.driver");
     }
 }
