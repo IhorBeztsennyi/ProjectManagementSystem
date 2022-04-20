@@ -15,7 +15,7 @@ public class DevelopersRepository implements Repository<DevelopersDao> {
     private static final String SAVE_NEW_DEVELOPER = "INSERT INTO developers (first_name, last_name, age, gender, email, phone, salary) VALUES (?, ?, ?, ?, ?, ?, ?);";
     private static final String FIND_BY_ID = "SELECT * FROM developers WHERE name_id = ?;";
     private static final String DELETE_BY_ID = "DELETE FROM developers WHERE name_id = ?";
-    private static final String UPDATE = "UPDATE developers SET first_name = ?, last_name = ?, age = ?, gender = ?, email = ?, phone = ?, salary = ?  WHERE name_id = ?";
+    private static final String UPDATE = "UPDATE developers SET first_name = ?, last_name = ?, age = ?, gender = ?, email = ?, phone = ?, salary = ?  WHERE name_id = ?;";
 
 
     public DevelopersRepository(DataBaseManager connection) {

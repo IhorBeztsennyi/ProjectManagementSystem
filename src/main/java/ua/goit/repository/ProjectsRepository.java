@@ -15,7 +15,7 @@ public class ProjectsRepository implements Repository<ProjectsDao> {
     private static final String SAVE_NEW_PROJECT = "INSERT INTO projects (name, customer_id, company_id, begin_data) VALUES (?, ?, ?, ?);";
     private static final String FIND_BY_ID = "SELECT * FROM projects WHERE project_id = ?;";
     private static final String DELETE_BY_ID = "DELETE FROM projects WHERE project_id = ?";
-    private static final String UPDATE = "UPDATE projects SET name = ?, customer_id = ?, company_id = ?, begin_data = ?  WHERE project_id = ?";
+    private static final String UPDATE = "UPDATE projects SET name = ?, customer_id = ?, company_id = ?, begin_data = ?  WHERE project_id = ?;";
 
     public ProjectsRepository(DataBaseManager connection) {
         this.managerDB = connection;
@@ -70,7 +70,7 @@ public class ProjectsRepository implements Repository<ProjectsDao> {
             preparedStatement.setInt(2, projectsDao.getCustomer_id());
             preparedStatement.setInt(3, projectsDao.getCompany_id());
             preparedStatement.setInt(4, projectsDao.getBegin_data());
-            preparedStatement.setInt(5, projectsDao.getProject_id());
+            preparedStatement.setInt(5, project_id);
             columnsUpdated = preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

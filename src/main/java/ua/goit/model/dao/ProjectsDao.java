@@ -19,6 +19,13 @@ public class ProjectsDao {
         this.begin_data = begin_data;
     }
 
+    public ProjectsDao(String name, Integer customer_id, Integer company_id, Integer begin_data) {
+        this.name = name;
+        this.customer_id = customer_id;
+        this.company_id = company_id;
+        this.begin_data = begin_data;
+    }
+
     public Integer getProject_id() {
         return project_id;
     }

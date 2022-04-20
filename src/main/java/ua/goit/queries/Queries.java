@@ -2,6 +2,7 @@ package ua.goit.queries;
 
 import ua.goit.configuration.DataBaseManager;
 import ua.goit.model.dao.DevelopersDao;
+import ua.goit.model.dao.ProjectsDao;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class Queries {
             "GROUP BY p.project_id;";
 
     private static final String ALL_DEVELOPERS = "SELECT * FROM developers;";
+    private static final String ALL_PROJECTS = "SELECT * FROM projects;";
 
     public Queries(DataBaseManager connection) {
         this.managerDB = connection;
@@ -79,6 +81,17 @@ public class Queries {
              Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(ALL_DEVELOPERS);
             return getListOfDevelopers(resultSet);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<ProjectsDao> getAllProjects() {
+        try (Connection connection = managerDB.getConnection();
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(ALL_PROJECTS);
+            return getListOfProjects(resultSet);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -138,6 +151,21 @@ public class Queries {
             developer.setPhone(resultSet.getString("phone"));
             developer.setSalary(resultSet.getDouble("salary"));
             result.add(developer);
+        }
+        return result;
+    }
+
+    private ArrayList<ProjectsDao> getListOfProjects(ResultSet resultSet) throws SQLException {
+        ArrayList<ProjectsDao> result = new ArrayList<>();
+        ProjectsDao project = null;
+        while (resultSet.next()) {
+            project = new ProjectsDao();
+            project.setProject_id(resultSet.getInt("project_id"));
+            project.setName(resultSet.getString("name"));
+            project.setCustomer_id(resultSet.getInt("customer_id"));
+            project.setCompany_id(resultSet.getInt("company_id"));
+            project.setBegin_data(resultSet.getInt("begin_data"));
+            result.add(project);
         }
         return result;
     }

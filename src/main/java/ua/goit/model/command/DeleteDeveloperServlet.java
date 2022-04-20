@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/deleteDeveloper")
-public class DeleteDeveloper extends HttpServlet {
+public class DeleteDeveloperServlet extends HttpServlet {
     Queries queries = null;
     DevelopersRepository developersRepository = null;
 

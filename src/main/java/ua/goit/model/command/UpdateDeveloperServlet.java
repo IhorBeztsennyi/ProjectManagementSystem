@@ -16,8 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/saveNewDeveloper")
-public class SaveNewDeveloperServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/updateDeveloper")
+public class UpdateDeveloperServlet extends HttpServlet {
+
     Queries queries = null;
     DevelopersConverter converter = null;
     DevelopersRepository developersRepository = null;
@@ -33,6 +34,7 @@ public class SaveNewDeveloperServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
         Integer age = Integer.parseInt(req.getParameter("age"));
@@ -42,8 +44,8 @@ public class SaveNewDeveloperServlet extends HttpServlet {
         Double salary = Double.parseDouble(req.getParameter("salary"));
         DevelopersDto developerDto = new DevelopersDto(firstName, lastName, age, gender, email, phone, salary);
         converter = new DevelopersConverter();
-        DevelopersDao developer = converter.dtoToDao(developerDto);
-        developersRepository.save(developer);
-        req.getRequestDispatcher("/WEB-INF/html/saveNewDeveloper.jsp").forward(req, resp);
+        Integer number = developersRepository.update(id, converter.dtoToDao(developerDto));
+        req.setAttribute("number", number);
+        req.getRequestDispatcher("/WEB-INF/html/updateDeveloper.jsp").forward(req, resp);
     }
 }

@@ -6,9 +6,16 @@ import ua.goit.configuration.PropertiesUtil;
 import ua.goit.model.converter.CustomersConverter;
 import ua.goit.model.converter.DevelopersConverter;
 import ua.goit.model.converter.ProjectsConverter;
+import ua.goit.model.dto.DevelopersDto;
+import ua.goit.model.dto.ProjectsDto;
 import ua.goit.queries.Queries;
+import ua.goit.repository.CustomersRepository;
+import ua.goit.repository.DevelopersRepository;
+import ua.goit.repository.ProjectsRepository;
 import ua.goit.view.Console;
 import ua.goit.view.View;
+
+import java.math.BigDecimal;
 
 public class App {
 
@@ -30,9 +37,9 @@ public class App {
         view.write("List of projects (begin data, name and a count of developers): " + queries.getCountOfDevelopers());
         view.write("List of All developers: " + queries.getAllDevelopers());
 //
-//        ProjectsRepository projectsRepository = new ProjectsRepository(managerDB);
-//        DevelopersRepository developersRepository = new DevelopersRepository(managerDB);
-//        CustomersRepository customersRepository = new CustomersRepository(managerDB);
+        ProjectsRepository projectsRepository = new ProjectsRepository(managerDB);
+        DevelopersRepository developersRepository = new DevelopersRepository(managerDB);
+        CustomersRepository customersRepository = new CustomersRepository(managerDB);
 //
 //        DevelopersDto newDeveloper = new DevelopersDto("Petro", "Podolsky", 39, "male", "podolsky_mail@gmail.com", "077 123 88 66", 2351.25);
 //        CustomersDto newCustomer = new CustomersDto("Chack", "Freeman", 60, "male", "freeman_mail@ukr.net", "1 243 777 999");
@@ -44,7 +51,7 @@ public class App {
 //
 //        view.write("Developers update:");
 //        DevelopersDto updatedDeveloper = new DevelopersDto("Petro", "Podolsky", 39, "male", "podolsky_mail@gmail.com", "077 123 88 66", 2500.00);
-//        view.write("Was updated "+ developersRepository.update(5, developersConverter.dtoToDao(updatedDeveloper))+ " row");
+//        view.write("Was updated "+ developersRepository.update(12, developersConverter.dtoToDao(updatedDeveloper))+ " row");
 //
 //        view.write("Developers remove");
 //        developersRepository.remove(5);
@@ -56,14 +63,19 @@ public class App {
 //        view.write("Customer remove");
 //        customersRepository.remove(5);
 
-//        view.write("Project update:");
-//        ProjectsDto updatedProject = new ProjectsDto("Application for sport", 2, 1, 1220327200);
-//        view.write("Was updated " + projectsRepository.update(5, projectsConverter.dtoToDao(updatedProject)) + " row");
+        view.write("Project update:");
+        ProjectsDto updatedProject = new ProjectsDto("Application for sport", 2, 1, 1220327200);
+        view.write("Was updated " + projectsRepository.update(8, projectsConverter.dtoToDao(updatedProject)) + " row");
 //
 //        view.write("Project remove");
 //        projectsRepository.remove(5);
 
-
-
+        Integer i1 = 128;
+        Integer i2 = 128;
+        System.out.print(i1 == i2);
+        Integer i3 = -127;
+        Integer i4 = -127;
+        System.out.print(i3 == i4);
+        char c = 17;
     }
 }
