@@ -30,6 +30,7 @@ public class UpdateProjectServlet extends HttpServlet {
                 properties.getUser(), properties.getPassword(), properties.getJdbcDriver());
         queries = new Queries(dbConnector);
         projectsRepository = new ProjectsRepository(dbConnector);
+        converter = new ProjectsConverter();
     }
 
     @Override
@@ -40,7 +41,6 @@ public class UpdateProjectServlet extends HttpServlet {
         Integer company_id = Integer.parseInt(req.getParameter("company_id"));
         Integer begin_data = Integer.parseInt(req.getParameter("begin_data"));
         ProjectsDto projectDto = new ProjectsDto(name, customer_id, company_id, begin_data);
-        converter = new ProjectsConverter();
         ProjectsDao project = converter.dtoToDao(projectDto);
         projectsRepository.update(project_id, project);
         req.getRequestDispatcher("/WEB-INF/html/updateProject.jsp").forward(req, resp);

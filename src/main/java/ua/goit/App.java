@@ -65,7 +65,7 @@ public class App {
 
         view.write("Project update:");
         ProjectsDto updatedProject = new ProjectsDto("Application for sport", 2, 1, 1220327200);
-        view.write("Was updated " + projectsRepository.update(8, projectsConverter.dtoToDao(updatedProject)) + " row");
+        view.write("Was updated " + projectsRepository.update(9, projectsConverter.dtoToDao(updatedProject)) + " row");
 //
 //        view.write("Project remove");
 //        projectsRepository.remove(5);

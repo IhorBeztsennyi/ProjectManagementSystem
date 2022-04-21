@@ -23,7 +23,7 @@
                      <input type="text" class="form-control" id="company_id" placeholder="id" name="company_id"><br>
                  </div>
                  <div class="form-group">
-                     <label for="begin_data">Gender:</label><br>
+                     <label for="begin_data">Begin data:</label><br>
                      <input type="text" class="form-control" id="begin_data" placeholder="1430227800" name="begin_data"><br>
                  </div>
                     <input type="submit" value="Submit">

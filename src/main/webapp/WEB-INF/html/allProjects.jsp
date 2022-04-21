@@ -9,6 +9,7 @@
     <body>
         <c:import url="${contextPath}/WEB-INF/html/navibar.jsp"/>
          <div class="container">
+         <h3>All projects:</h3>
               <div class="container">
                    <table class="table table-hover">
                       <tr>
