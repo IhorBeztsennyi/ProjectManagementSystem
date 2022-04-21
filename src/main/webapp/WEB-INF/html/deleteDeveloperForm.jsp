@@ -6,10 +6,8 @@
     <head>
          <c:import url="${contextPath}/WEB-INF/html/header.jsp"/>
     </head>
-
     <body>
         <c:import url="${contextPath}/WEB-INF/html/navibar.jsp"/>
-
          <div>
               <div class="container">
                    <form action="/deleteDeveloper" method="post">

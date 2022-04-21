@@ -6,10 +6,8 @@
     <head>
          <c:import url="${contextPath}/WEB-INF/html/header.jsp"/>
     </head>
-
     <body>
         <c:import url="${contextPath}/WEB-INF/html/navibar.jsp"/>
-
          <div class="container">
               <div class="container">
                    <form action="/developersListByProject">
@@ -19,7 +17,6 @@
                          </div>
                          <input type="submit" value="Submit">
                    </form>
-
                    <table class="table table-hover">
                       <tr>
                           <td>Id</td>
@@ -60,7 +57,6 @@
                       </tr>
                       </c:forEach>
                   </table>
-
               </div>
          </div>
     </body>

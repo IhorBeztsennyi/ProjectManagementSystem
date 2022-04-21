@@ -3,7 +3,7 @@ package ua.goit.model.converter;
 import ua.goit.model.dao.CustomersDao;
 import ua.goit.model.dto.CustomersDto;
 
-public class CustomersConverter  implements Converter<CustomersDao, CustomersDto>{
+public class CustomersConverter implements Converter<CustomersDao, CustomersDto> {
 
     @Override
     public CustomersDto daoToDto(CustomersDao type) {

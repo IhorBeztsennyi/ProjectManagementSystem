@@ -10,6 +10,5 @@
         <c:import url="${contextPath}/WEB-INF/html/navibar.jsp"/>
         <h3 class="container"><c:out value="${number}" />developer was updated</h3>
         <p class="container"><a href="/findAllDevelopers">Show all developers</a></p>
-
     </body>
 </html>

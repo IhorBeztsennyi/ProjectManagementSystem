@@ -18,7 +18,6 @@ public class DeleteDeveloperServlet extends HttpServlet {
     Queries queries = null;
     DevelopersRepository developersRepository = null;
 
-
     @Override
     public void init() {
         PropertiesUtil properties = new PropertiesUtil(getServletContext());

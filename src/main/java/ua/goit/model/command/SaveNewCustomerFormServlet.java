@@ -7,11 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/saveNewProjectsForm")
-public class SaveNewProjectFormServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/saveNewCustomersForm")
+public class SaveNewCustomerFormServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/html/saveNewProjectForm.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/html/saveNewCustomerForm.jsp").forward(req, resp);
     }
+
 }

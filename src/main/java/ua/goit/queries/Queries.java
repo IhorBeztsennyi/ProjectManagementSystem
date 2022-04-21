@@ -1,6 +1,7 @@
 package ua.goit.queries;
 
 import ua.goit.configuration.DataBaseManager;
+import ua.goit.model.dao.CustomersDao;
 import ua.goit.model.dao.DevelopersDao;
 import ua.goit.model.dao.ProjectsDao;
 
@@ -40,6 +41,7 @@ public class Queries {
 
     private static final String ALL_DEVELOPERS = "SELECT * FROM developers;";
     private static final String ALL_PROJECTS = "SELECT * FROM projects;";
+    private static final String ALL_CUSTOMERS = "SELECT * FROM customers;";
 
     public Queries(DataBaseManager connection) {
         this.managerDB = connection;
@@ -92,6 +94,17 @@ public class Queries {
              Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(ALL_PROJECTS);
             return getListOfProjects(resultSet);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<CustomersDao> getAllCustomers() {
+        try (Connection connection = managerDB.getConnection();
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(ALL_CUSTOMERS);
+            return getListOfCustomers(resultSet);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -166,6 +179,23 @@ public class Queries {
             project.setCompany_id(resultSet.getInt("company_id"));
             project.setBegin_data(resultSet.getInt("begin_data"));
             result.add(project);
+        }
+        return result;
+    }
+
+    private ArrayList<CustomersDao> getListOfCustomers(ResultSet resultSet) throws SQLException {
+        ArrayList<CustomersDao> result = new ArrayList<>();
+        CustomersDao customer = null;
+        while (resultSet.next()) {
+            customer = new CustomersDao();
+            customer.setCustomer_id(resultSet.getInt("customer_id"));
+            customer.setFirst_name(resultSet.getString("first_name"));
+            customer.setLast_name(resultSet.getString("last_name"));
+            customer.setAge(resultSet.getInt("age"));
+            customer.setGender(resultSet.getString("gender"));
+            customer.setEmail(resultSet.getString("email"));
+            customer.setPhone(resultSet.getString("phone"));
+            result.add(customer);
         }
         return result;
     }

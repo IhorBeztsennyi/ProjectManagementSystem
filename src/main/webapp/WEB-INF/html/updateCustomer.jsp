@@ -8,7 +8,7 @@
     </head>
     <body>
         <c:import url="${contextPath}/WEB-INF/html/navibar.jsp"/>
-        <h3 class="container">Developer with ID <c:out value="${nameId}" /> was deleted</h3>
-        <p class="container"><a href="/findAllDevelopers">Show all developers</a></p>
+        <h3 class="container"><c:out value="${count}" /> customer was updated</h3>
+        <p class="container"><a href="/findAllCustomers">Show all customers</a></p>
     </body>
 </html>

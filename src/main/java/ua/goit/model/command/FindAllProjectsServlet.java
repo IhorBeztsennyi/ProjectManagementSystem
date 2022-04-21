@@ -3,9 +3,7 @@ package ua.goit.model.command;
 import ua.goit.configuration.DataBaseManager;
 import ua.goit.configuration.PostgreSqlHikari;
 import ua.goit.configuration.PropertiesUtil;
-import ua.goit.model.converter.DevelopersConverter;
 import ua.goit.model.converter.ProjectsConverter;
-import ua.goit.model.dto.DevelopersDto;
 import ua.goit.model.dto.ProjectsDto;
 import ua.goit.queries.Queries;
 
@@ -40,5 +38,4 @@ public class FindAllProjectsServlet extends HttpServlet {
         req.setAttribute("projects", projects);
         req.getRequestDispatcher("/WEB-INF/html/allProjects.jsp").forward(req, resp);
     }
-
 }

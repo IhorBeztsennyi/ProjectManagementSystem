@@ -4,7 +4,7 @@ import ua.goit.configuration.DataBaseManager;
 import ua.goit.configuration.PostgreSqlHikari;
 import ua.goit.configuration.PropertiesUtil;
 import ua.goit.queries.Queries;
-import ua.goit.repository.ProjectsRepository;
+import ua.goit.repository.CustomersRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,11 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/deleteProject")
-public class DeleteProjectServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/deleteCustomer")
+public class DeleteCustomerServlet extends HttpServlet {
     Queries queries = null;
-    ProjectsRepository projectsRepository = null;
-
+    CustomersRepository customersRepository = null;
 
     @Override
     public void init() {
@@ -25,14 +24,14 @@ public class DeleteProjectServlet extends HttpServlet {
         DataBaseManager dbConnector = new PostgreSqlHikari(properties.getHostname(), properties.getPort(), properties.getSchema(),
                 properties.getUser(), properties.getPassword(), properties.getJdbcDriver());
         queries = new Queries(dbConnector);
-        projectsRepository = new ProjectsRepository(dbConnector);
+        customersRepository = new CustomersRepository(dbConnector);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer project_id = Integer.parseInt(req.getParameter("project_id"));
-        projectsRepository.remove(project_id);
-        req.setAttribute("project_id", project_id);
-        req.getRequestDispatcher("/WEB-INF/html/deleteProject.jsp").forward(req, resp);
+        Integer customer_id = Integer.parseInt(req.getParameter("customer_id"));
+        customersRepository.remove(customer_id);
+        req.setAttribute("customer_id", customer_id);
+        req.getRequestDispatcher("/WEB-INF/html/deleteCustomer.jsp").forward(req, resp);
     }
 }

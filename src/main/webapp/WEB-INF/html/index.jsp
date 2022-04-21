@@ -6,10 +6,8 @@
     <head>
          <c:import url="${contextPath}/WEB-INF/html/header.jsp"/>
     </head>
-
     <body>
         <c:import url="${contextPath}/WEB-INF/html/navibar.jsp"/>
-
          <div class="container">
                <h1 style="color: #2e6c80;">You can view: </h1>
                 <p><a href="/salaryByProjectForm">Salary of all developers of a separate project</a></p>

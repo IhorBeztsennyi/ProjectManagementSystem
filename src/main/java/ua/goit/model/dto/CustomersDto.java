@@ -19,16 +19,6 @@ public class CustomersDto {
         this.phone = phone;
     }
 
-    public CustomersDto(Integer customer_id, String first_name, String last_name, Integer age, String gender, String email, String phone) {
-        this.customer_id = customer_id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.age = age;
-        this.gender = gender;
-        this.email = email;
-        this.phone = phone;
-    }
-
     public CustomersDto() {
     }
 

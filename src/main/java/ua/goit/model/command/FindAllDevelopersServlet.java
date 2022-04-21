@@ -39,5 +39,4 @@ public class FindAllDevelopersServlet extends HttpServlet {
         req.setAttribute("developers", developers);
         req.getRequestDispatcher("/WEB-INF/html/allDevelopers.jsp").forward(req, resp);
     }
-
 }

@@ -3,10 +3,6 @@ package ua.goit.model.command;
 import ua.goit.configuration.DataBaseManager;
 import ua.goit.configuration.PostgreSqlHikari;
 import ua.goit.configuration.PropertiesUtil;
-import ua.goit.model.converter.DevelopersConverter;
-import ua.goit.model.converter.ProjectsConverter;
-import ua.goit.model.dto.DevelopersDto;
-import ua.goit.model.dto.ProjectsDto;
 import ua.goit.queries.ProjectDateNameCount;
 import ua.goit.queries.Queries;
 
@@ -17,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @WebServlet(urlPatterns = "/projectsList")
 public class ProjectsListServlet extends HttpServlet {

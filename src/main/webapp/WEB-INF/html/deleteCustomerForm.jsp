@@ -8,17 +8,16 @@
     </head>
     <body>
         <c:import url="${contextPath}/WEB-INF/html/navibar.jsp"/>
-         <div class="container">
+         <div>
               <div class="container">
-                   <form action="/salaryByProject">
+                   <form action="/deleteCustomer" method="post">
                         <div class="form-group">
-                            <label for="projectNumber">Enter the project number:</label><br>
-                            <input type="text" class="form-control" id="projectNumber" placeholder="Enter the project number" name="projectNumber"><br>
+                            <label for="customer_id">Enter the customer ID you want to remove:</label><br>
+                            <input type="text" class="form-control" id="customer_id" placeholder="Enter ID" name="customer_id"><br>
                          </div>
                          <input type="submit" value="Submit">
                    </form>
-                   <h3>Project salary is <c:out value="${sum}"/> $</h3>
               </div>
          </div>
-    </body>
+  </body>
 </html>

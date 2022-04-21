@@ -6,7 +6,6 @@
     <head>
          <c:import url="${contextPath}/WEB-INF/html/header.jsp"/>
     </head>
-
     <body>
         <c:import url="${contextPath}/WEB-INF/html/navibar.jsp"/>
         <h3 class="container">Project with ID <c:out value="${project_id}" /> was deleted</h3>

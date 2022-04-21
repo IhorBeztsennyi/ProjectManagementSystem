@@ -19,33 +19,29 @@
                           <td>Gender</td>
                           <td>Email</td>
                           <td>Phone</td>
-                          <td>Salary</td>
                       </tr>
-                      <c:forEach items="${developers}" var="developer">
+                      <c:forEach items="${customers}" var="customer">
                       <tr>
                           <td>
-                              <c:out value="${developer.nameId}" />
+                              <c:out value="${customer.customer_id}" />
                           </td>
                           <td>
-                              <c:out value="${developer.firstName}" />
+                              <c:out value="${customer.first_name}" />
                           </td>
                           <td>
-                              <c:out value="${developer.lastName}" />
+                              <c:out value="${customer.last_name}" />
                           </td>
                           <td>
-                              <c:out value="${developer.age}" />
+                              <c:out value="${customer.age}" />
                           </td>
                            <td>
-                              <c:out value="${developer.gender}"/>
+                              <c:out value="${customer.gender}"/>
                            </td>
                            <td>
-                              <c:out value="${developer.email}"/>
+                              <c:out value="${customer.email}"/>
                            </td>
                            <td>
-                               <c:out value="${developer.phone}"/>
-                           </td>
-                           <td>
-                                <c:out value="${developer.salary}"/>
+                               <c:out value="${customer.phone}"/>
                            </td>
                       </tr>
                       </c:forEach>

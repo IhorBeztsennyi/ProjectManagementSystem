@@ -9,18 +9,14 @@
     <body>
         <c:import url="${contextPath}/WEB-INF/html/navibar.jsp"/>
         <div class="container">
-            <form action="/updateDeveloper" method="post">
+            <form action="/saveNewCustomer" method="post">
                 <div class="form-group">
-                    <label for="id">Developers ID you want to update:</label><br>
-                    <input type="text" class="form-control" id="id" placeholder="ID" name="id"><br>
+                    <label for="first_name">First Name:</label><br>
+                    <input type="text" class="form-control" id="first_name" placeholder="Enter first name" name="first_name"><br>
                 </div>
-                <div class="form-group">
-                    <label for="firstName">First Name:</label><br>
-                    <input type="text" class="form-control" id="firstName" placeholder="Enter first name" name="firstName"><br>
-                </div>
-                <div class="form-group">
-                     <label for="lastName">Last Name:</label><br>
-                     <input type="text" class="form-control" id="lastName" placeholder="Enter last name" name="lastName"><br>
+                 <div class="form-group">
+                     <label for="last_name">Last Name:</label><br>
+                     <input type="text" class="form-control" id="last_name" placeholder="Enter last name" name="last_name"><br>
                  </div>
                  <div class="form-group">
                      <label for="age">Age:</label><br>
@@ -37,10 +33,6 @@
                  <div class="form-group">
                       <label for="phone">Phone:</label><br>
                       <input type="text" class="form-control" id="phone" placeholder="012 123-45-67" name="phone"><br>
-                 </div>
-                 <div class="form-group">
-                      <label for="salary">Salary:</label><br>
-                      <input type="text" class="form-control" id="salary" placeholder="1000.00" name="salary"><br>
                  </div>
                     <input type="submit" value="Submit">
             </form>
