@@ -19,8 +19,8 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/saveNewDeveloper")
 public class SaveNewDeveloperServlet extends HttpServlet {
     Queries queries = null;
-    DevelopersConverter converter = null;
     DevelopersRepository developersRepository = null;
+    DevelopersConverter converter = null;
 
     @Override
     public void init() {

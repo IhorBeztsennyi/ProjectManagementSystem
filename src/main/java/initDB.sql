@@ -6,7 +6,7 @@ CREATE TABLE developers (
  gender VARCHAR(6) NOT NULL,
  email  VARCHAR(50) NOT NULL,
  phone VARCHAR(15) NOT NULL,
- salary decimal(6,2),
+ salary decimal(12,2),
  PRIMARY KEY (name_id)
 );
 
